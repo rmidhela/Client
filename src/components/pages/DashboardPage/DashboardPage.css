@@ -1,0 +1,27 @@
+.dashboard {
+    padding: 20px;
+    background-color: #f4f4f4;
+    min-height: 100vh; /* Adjust height as necessary */
+}
+
+.dashboard-title {
+    text-align: center;
+    color: #333;
+}
+
+.dashboard-content {
+    margin-top: 20px;
+}
+
+.budget-summary, .expense-overview {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.budget-summary h2, .expense-overview h2 {
+    margin-top: 0;
+    color: #555;
+}
