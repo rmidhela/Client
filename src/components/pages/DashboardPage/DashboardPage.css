@@ -25,3 +25,26 @@
     margin-top: 0;
     color: #555;
 }
+
+/* DashboardPage.css */
+
+.charts-container {
+    display: flex; /* Use flexbox to arrange the charts side by side */
+    justify-content: space-between; /* Add space between the charts */
+}
+
+.chart-pie,
+.chart-donut {
+    flex: 1; /* Distribute available space evenly between the charts */
+    padding: 20px; /* Add padding around each chart for spacing */
+    border: 1px solid #ddd; /* Add borders if needed */
+    border-radius: 5px; /* Add border-radius if needed */
+    background-color: #f5f5f5; /* Add background color if needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box-shadow if needed */
+}
+
+.chart h2 {
+    font-size: 18px; /* Style the chart headings */
+    text-align: center;
+}
+

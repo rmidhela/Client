@@ -1,34 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './ExpenseEntryPage.css';
+import {fetchExpenses } from '../../ExpenseService';
 
 const ExpenseEntryPage = () => {
     const [expenses, setExpenses] = useState([]);
     const [newExpense, setNewExpense] = useState({ description: '', amount: '' });
 
-    // Function to fetch expenses from the server
-    const fetchExpenses = async () => {
-        try {
-            const response = await fetch('http://localhost:5000/api/expenses', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
-                }
-            });
-
-            const data = await response.json();
-            if (response.ok) {
-                setExpenses(data);
-            } else {
-                console.error('Error fetching expenses:', data.message);
-            }
-        } catch (error) {
-            console.error('Error during fetching expenses:', error);
-        }
-    };
-
     useEffect(() => {
-        fetchExpenses();
+        const loadExpenses = async () => {
+            try {
+                const data = await fetchExpenses();
+                setExpenses(data);
+            } catch (error) {
+                console.error('Failed to fetch expenses:', error);
+            }
+        };
+        loadExpenses();
     }, []);
 
     const handleAddExpense = async (event) => {
